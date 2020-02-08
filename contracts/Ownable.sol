@@ -1,4 +1,4 @@
-pragma solidity 0.5.2;
+pragma solidity ^0.5.12;
 
 contract Ownable{
     address payable owner; // Variabile dove salverò l'indirizzo di chi fa il deploy dello smart contract che verrá considerato l'owner del contratto.

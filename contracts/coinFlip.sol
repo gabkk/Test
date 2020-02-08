@@ -1,11 +1,9 @@
 import "./Ownable.sol";
 import"./provableAPI.sol";
 
-pragma solidity 0.5.2;
+pragma solidity ^0.5.12;
 
 contract CoinFlip is Ownable{
-
-  //uint256 NUM_RANDOM_BYTES_REQUESTED = 1;
 
   event balanceUpdated (bool done);
 //  event LogNewProvableQuery (string queryRequested);
@@ -30,7 +28,7 @@ contract CoinFlip is Ownable{
     return now % 2;
   }
 
-  function flip (uint decision) public payable costs (5000000000000000 wei){
+  function flip (uint decision) public payable{
     require (getContractValue () >= msg.value*2, "Contract does not have enough funds");
     uint bet = msg.value;
     //update(msg.sender, decision);
@@ -41,7 +39,7 @@ contract CoinFlip is Ownable{
   }
 
   function loadUpContract () public payable onlyOwner{
-    emit balanceUpdated(done);
+    emit balanceUpdated(true);
   }
 
   function withdrawalAll () public onlyOwner {
